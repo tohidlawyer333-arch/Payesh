@@ -36,7 +36,7 @@ jobs:
         run: ./gradlew testDebugUnitTest lintDebug assembleDebug assembleRelease --no-daemon --stacktrace
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: LawyerUp-APK-and-reports
+          name: payesh-APK-and-reports
           path: |
             app/build/outputs/apk/
             app/build/reports/

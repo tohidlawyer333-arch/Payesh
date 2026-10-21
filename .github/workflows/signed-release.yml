@@ -19,14 +19,14 @@ jobs:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
         run: |
           test -n "$KEYSTORE_BASE64" || { echo "Configure repository signing secrets first"; exit 1; }
-          printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/lawyerup.jks"
-          chmod 600 "$RUNNER_TEMP/lawyerup.jks"
+          printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/payesh.jks"
+          chmod 600 "$RUNNER_TEMP/payesh.jks"
       - name: Validate and build signed APK and AAB
         env:
-          LAWYERUP_KEYSTORE: ${{ runner.temp }}/lawyerup.jks
-          LAWYERUP_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
-          LAWYERUP_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          LAWYERUP_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          payesh_KEYSTORE: ${{ runner.temp }}/payesh.jks
+          payesh_STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          payesh_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          payesh_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
           set -euo pipefail
           chmod +x gradlew
@@ -40,10 +40,10 @@ jobs:
           ./gradlew testDebugUnitTest lintRelease assembleRelease bundleRelease --no-daemon --stacktrace
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: LawyerUp-signed-release
+          name: payesh-signed-release
           path: |
             app/build/outputs/apk/release/*.apk
             app/build/outputs/bundle/release/*.aab
           if-no-files-found: error
       - if: always()
-        run: rm -f "$RUNNER_TEMP/lawyerup.jks"
+        run: rm -f "$RUNNER_TEMP/payesh.jks"

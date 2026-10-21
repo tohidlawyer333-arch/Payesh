@@ -1,11 +1,11 @@
-# LawyerUp — سورس دفتر دیجیتال وکیل
-پروژه Kotlin / Jetpack Compose بر پایه فایل LawyerUp_Fixed، با مدیریت واقعی پرونده و ابلاغ، دریافت ثنا، تطبیق مستند، پیگیری و پیش‌نویس، OCR فارسی آفلاین و رابط راست‌به‌چپ.
+# payesh — سورس دفتر دیجیتال وکیل
+پروژه Kotlin / Jetpack Compose بر پایه فایل payesh_Fixed، با مدیریت واقعی پرونده و ابلاغ، دریافت ثنا، تطبیق مستند، پیگیری و پیش‌نویس، OCR فارسی آفلاین و رابط راست‌به‌چپ.
 
 ## بیلد در GitHub
 1. ZIP را استخراج کنید؛ **محتویات داخل آن** را در ریشه مخزن قرار دهید، نه خود فایل ZIP یا یک پوشه اضافه.
 2. پوشه مخفی `.github`، فایل‌های `gradlew` و `gradle/wrapper/gradle-wrapper.jar` باید همراه سورس باشند.
 3. در برگه Actions، گردش **Android build** را اجرا کنید. گردش **Source safety** نیز آزمون استخراج و هش فایل‌های باینری را کنترل می‌کند.
-4. از بخش Artifacts، `LawyerUp-APK-and-reports` را دریافت کنید. APK پوشه debug قابل نصب برای آزمون است؛ release عادی بدون امضای انتشار است.
+4. از بخش Artifacts، `payesh-APK-and-reports` را دریافت کنید. APK پوشه debug قابل نصب برای آزمون است؛ release عادی بدون امضای انتشار است.
 5. گردش **Android device tests** آزمون رابط روی شبیه‌ساز را اجرا می‌کند. رمز و حساب واقعی ثنا در CI استفاده نمی‌شود.
 
 ## انتشار با امضای شما
@@ -18,7 +18,7 @@
 - ویندوز: `powershell -File scripts/validate.ps1`
 - لینوکس/macOS: `bash scripts/validate.sh`
 - آزمون دستگاه: `./gradlew connectedDebugAndroidTest`
-- حداقل Android 8 (API 26). نام بسته: `com.lawyerup.app`.
+- حداقل Android 8 (API 26). نام بسته: `com.payesh.app`.
 - وابستگی‌ها از Google Maven، Maven Central و برای Tesseract4Android از JitPack دریافت می‌شوند. روی شبکه‌ای که این مخازن در دسترس نیستند، از CI گیت‌هاب استفاده کنید؛ TLS را غیرفعال نکنید.
 
 ## مسیر استفاده

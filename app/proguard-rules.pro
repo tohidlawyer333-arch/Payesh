@@ -1,1 +1,1 @@
--keep class com.lawyerup.app.data.local.** { *; }
+-keep class com.payesh.app.data.local.** { *; }

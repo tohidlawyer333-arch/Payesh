@@ -1,6 +1,6 @@
 # Third-party components
 
-The input LawyerUp_Fixed source is preserved and extended. No blanket license or ownership transfer is asserted for the user's source.
+The input payesh_Fixed source is preserved and extended. No blanket license or ownership transfer is asserted for the user's source.
 
 - Gradle wrapper 8.13: Apache-2.0; official scripts/JAR from gradle/gradle v8.13.0. Wrapper and distribution hashes are pinned.
 - Vazirmatn 33.003: SIL Open Font License 1.1. Original license is included in licenses/Vazirmatn-OFL.txt.

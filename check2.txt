@@ -1,0 +1,35 @@
+=== REMAINING lawyerup REFERENCES ===
+apk_build.log [lawyerup]
+clean_test.log [lawyerup]
+docs\BINARY-SHA256SUMS [lawyerup]
+final_tests.log [lawyerup]
+rebrand.log [lawyerup]
+scripts\source_zip.py [LawyerUp]
+SOURCE-SHA256SUMS [lawyerup]
+state.txt [lawyerup]
+_check2.js [lawyerup,LawyerUp,LAWYERUP,lawyer-up]
+_move_dirs.js [lawyerup]
+_rebrand.js [lawyerup,LawyerUp,LAWYERUP,lawyer-up]
+_scan_brand.js [lawyerup,LawyerUp,LAWYERUP,lawyer-up]
+_state.js [lawyerup,LAWYERUP]
+=== LEFTOVER lawyerup DIRS ===
+app\schemas\com.lawyerup.app.data.VaultDatabase
+app\src\androidTest\java\com\lawyerup
+app\src\main\java\com\lawyerup
+app\src\test\java\com\lawyerup
+app\src\test\java\com\lawyerup\app
+app\src\test\java\com\lawyerup\app\data
+app\schemas\com.lawyerup.app.data.VaultDatabase
+app\src\androidTest\java\com\lawyerup
+app\src\main\java\com\lawyerup
+app\src\test\java\com\lawyerup
+app\src\test\java\com\lawyerup\app
+app\src\test\java\com\lawyerup\app\data
+=== strings.xml ===
+<resources>
+    <string name="app_name">پایش</string>
+    <string name="claims_title">دعاوی حقوقی</string>
+    <string name="matcher_title">تطبیق پرونده و تنظیم لایحه</string>
+    <string name="tab_all">همه</string>
+</resources>
+

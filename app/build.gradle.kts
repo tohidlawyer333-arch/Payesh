@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    namespace = "com.lawyerup.app"
+    namespace = "com.payesh.app"
     compileSdk = 36
     buildToolsVersion = "36.0.0"
 
     defaultConfig {
-        applicationId = "com.lawyerup.app"
+        applicationId = "com.payesh.app"
         minSdk = 26
         targetSdk = 36
         versionCode = 20
@@ -19,13 +19,13 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
-    val releaseKey = System.getenv("LAWYERUP_KEYSTORE")
+    val releaseKey = System.getenv("payesh_KEYSTORE")
     if (!releaseKey.isNullOrBlank()) {
         signingConfigs.create("distribution") {
             storeFile = file(releaseKey)
-            storePassword = System.getenv("LAWYERUP_STORE_PASSWORD") ?: error("Missing store password")
-            keyAlias = System.getenv("LAWYERUP_KEY_ALIAS") ?: error("Missing key alias")
-            keyPassword = System.getenv("LAWYERUP_KEY_PASSWORD") ?: error("Missing key password")
+            storePassword = System.getenv("payesh_STORE_PASSWORD") ?: error("Missing store password")
+            keyAlias = System.getenv("payesh_KEY_ALIAS") ?: error("Missing key alias")
+            keyPassword = System.getenv("payesh_KEY_PASSWORD") ?: error("Missing key password")
         }
     }
     buildTypes {

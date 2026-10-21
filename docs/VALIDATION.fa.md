@@ -8,7 +8,7 @@
 ## کارهای باقیمانده که باید پیش از اعتماد کامل انجام شود:
 1. لوگوی سفارشی از https://gapgpt.app/api/v1/files/server/hP9CpxNwfdE2dfHInOyJishMNh8-ETH3pasJQimPtyLg4a8Upw.png جایگزین شود.
 2. ادغام شاخه feature/payesh-case-analysis به main.
-3. بارگذاری متن کامل قوانین از qavanin.ir (42 لینک در سند اصلی) در app/src/main/assets/database/lawyerup.db.
+3. بارگذاری متن کامل قوانین از qavanin.ir (42 لینک در سند اصلی) در app/src/main/assets/database/payesh.db.
 4. آزمون واقعی end-to-end روی حساب مجاز ثنا با گزارش دقیق و مقایسه رسمی/محلی.
 5. دانلود APK از Actions و نصب روی دستگاه واقعی برای بررسی چیدمان مشاهده‌شده‌ها.
 
