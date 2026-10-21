@@ -177,7 +177,7 @@ class WorkspaceRepository(context: Context, private val database: VaultDatabase 
         val tasks = json.getJSONArray("tasks")
         require(records.length() <= 20000 && tasks.length() <= 50000)
         val parsed = (0 until records.length()).map { CourtRecord.from(records.getJSONObject(it)) }
-        parsed.forEach { require((if(it.kind == RecordKind.NOTICE) it.noticeNumber else it.caseNumber).matches(Regex("[0-9]{16,20}"))) }
+        parsed.forEach { require((if(it.kind == RecordKind.NOTICE) it.noticeNumber else it.caseNumber).matches(Regex("[0-9]{6,20}"))) }
         val newer = parsed.filter { record ->
             val existing = dao.get(record.id)?.let { CourtRecord.from(JSONObject(crypto.open(it.payload, it.id))) }
             existing == null || existing.importedAt < record.importedAt

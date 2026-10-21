@@ -8,7 +8,7 @@ data class PageRead(val url: String, val rows: List<Map<String, String>>, val pa
     val login: Boolean, val loading: Boolean, val blockedFrames: Int, val truncated: Boolean, val adapter: String)
 
 object Extraction {
-    private val number = Regex("(?<![0-9])[0-9]{16,20}(?![0-9])")
+    private val number = Regex("(?<![0-9])[0-9]{6,20}(?![0-9])")
     fun read(raw: String): PageRead {
         require(raw.length <= 4_000_000) { "حجم صفحه بیش از حد مجاز است" }
         val decoded = org.json.JSONTokener(raw).nextValue()
@@ -65,7 +65,7 @@ object Extraction {
         val fields = linkedMapOf<String, String>()
         val normalized = normalize(text)
         for((label, expression) in listOf("شماره پرونده" to "شماره\\s*پرونده", "شماره ابلاغیه" to "شماره\\s*ابلاغ(?:یه)?")) {
-            val matches = Regex("$expression\\s*[:：]?\\s*([0-9]{16,20})(?![0-9])").findAll(normalized).map { it.groupValues[1] }.distinct().toList()
+            val matches = Regex("$expression\\s*[:：]?\\s*([0-9]{6,20})(?![0-9])").findAll(normalized).map { it.groupValues[1] }.distinct().toList()
             if(matches.size == 1) fields[label] = matches.single()
         }
         fields["متن سند؛ نیازمند بازبینی"] = text.take(100000)
