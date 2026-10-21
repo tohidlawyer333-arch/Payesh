@@ -1,0 +1,1 @@
+e: file:///C:/Users/ASUS/Desktop/Payesh/app/src/main/java/com/payesh/app/ui/WorkspaceApp.kt:109:52 Too many arguments for 'fun CaseMatcherScreen(repository: LawRepository): Unit'.
