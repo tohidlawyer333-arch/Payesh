@@ -28,8 +28,8 @@ object BackupCipher {
         require(bytes.size in 54..25_000_000)
         require(MessageDigest.isEqual(bytes.copyOfRange(0, 8), header)) { "هدر رمزگذاری نامعتبر" }
         val cipher = Cipher.getInstance("AES/GCM/NoPadding")
-        cipher.init(Cipher.DECRYPT_MODE, key(password, bytes.copyOfRange(9, 25)), GCMParameterSpec(128, bytes.copyOfRange(25, 37)))
+        cipher.init(Cipher.DECRYPT_MODE, key(password, bytes.copyOfRange(8, 24)), GCMParameterSpec(128, bytes.copyOfRange(24, 36)))
         cipher.updateAAD(header)
-        return String(cipher.doFinal(bytes.copyOfRange(37, bytes.size)), Charsets.UTF_8)
+        return String(cipher.doFinal(bytes.copyOfRange(36, bytes.size)), Charsets.UTF_8)
     }
 }

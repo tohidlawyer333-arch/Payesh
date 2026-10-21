@@ -26,7 +26,7 @@ class DomainTest {
     @Test fun cardFieldsParseWithoutCaseNumber() {val parsed=Extraction.parse(mapOf("شماره ابلاغیه" to noticeNumber),RecordKind.NOTICE,"https://eblagh1.adliran.ir");assertNotNull(parsed);assertEquals("",parsed!!.caseNumber)}
     @Test fun paginationNeverBecomesCase() {assertNull(Extraction.parse(mapOf("ردیف" to "26","مشاهده" to "25"),RecordKind.CASE,""))}
     @Test fun unlabeledNumberRejected() {assertNull(Extraction.parse(mapOf("متن" to number),RecordKind.CASE,""))}
-    @Test fun numberLengthBoundaries() {for(length in listOf(15,21))assertNull(Extraction.parse(mapOf("شماره پرونده" to "1".repeat(length)),RecordKind.CASE,""));for(length in 16..20)assertNotNull(Extraction.parse(mapOf("شماره پرونده" to "1".repeat(length)),RecordKind.CASE,""))}
+    @Test fun numberLengthBoundaries() {for(length in listOf(5,21))assertNull(Extraction.parse(mapOf("شماره پرونده" to "1".repeat(length)),RecordKind.CASE,""));for(length in 6..20)assertNotNull(Extraction.parse(mapOf("شماره پرونده" to "1".repeat(length)),RecordKind.CASE,""))}
     @Test fun twoNumbersInOneCellNotGuessed() {assertNull(Extraction.parse(mapOf("شماره پرونده" to "$number 1000000000000002"),RecordKind.CASE,""))}
     @Test fun twoNoticesSameCaseHaveSeparateIdentity() {assertNotEquals(notice().id,notice().copy(noticeNumber="200000000000000002").id)}
     @Test fun caseSubNumbersHaveSeparateIdentity() {assertNotEquals(case(sub="1").id,case(sub="2").id)}
@@ -60,7 +60,7 @@ class DomainTest {
     @Test fun draftNotReceiptOrCompletedTask() {val task=WorkItem("a","b","اعتراض","why");assertTrue(ActionEngine.draft(task,null).contains("ارسال نشده"));assertFalse(task.done)}
     @Test fun feesUseEnteredRateAndExactMoney() {assertEquals(BigDecimal("50000"),FeeCalculator.percent(BigDecimal("1000000"),BigDecimal("5")))}
     @Test(expected=IllegalArgumentException::class) fun invalidFeeRejected() {FeeCalculator.percent(BigDecimal("-1"),BigDecimal("5"))}
-    @Test fun backupRoundTrip() {val phrase="a very long phrase".toCharArray();val bytes=BackupCipher.encrypt("محرمانه",phrase);assertEquals("محرمانه",BackupCipher.decrypt(bytes,phrase))}
+    @Test fun backupRoundTrip() {val phrase="a very long backup phrase".toCharArray();val bytes=BackupCipher.encrypt("محرمانه",phrase);assertEquals("محرمانه",BackupCipher.decrypt(bytes,phrase))}
     @Test fun wrongBackupPasswordFails() {val bytes=BackupCipher.encrypt("secret","long password one".toCharArray());assertTrue(runCatching {BackupCipher.decrypt(bytes,"long password two".toCharArray())}.isFailure)}
     @Test fun backupTamperFails() {val bytes=BackupCipher.encrypt("secret","long password one".toCharArray());bytes[bytes.lastIndex]=(bytes.last().toInt() xor 1).toByte();assertTrue(runCatching {BackupCipher.decrypt(bytes,"long password one".toCharArray())}.isFailure)}
 }

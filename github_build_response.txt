@@ -1,5 +1,0 @@
-{
-  "message": "Problems parsing JSON",
-  "documentation_url": "https://docs.github.com/rest/actions/workflows#create-a-workflow-dispatch-event",
-  "status": "400"
-}
