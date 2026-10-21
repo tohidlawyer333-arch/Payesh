@@ -1,4 +1,0 @@
-> Task :app:compileReleaseKotlin FAILED
-FAILURE: Build failed with an exception.
-Execution failed for task ':app:compileReleaseKotlin'.
-BUILD FAILED in 1m 41s
